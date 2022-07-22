@@ -1,0 +1,1 @@
+export const BASE_URL = 'https://fortniteapi.io/v1/shop?lang=en'

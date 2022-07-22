@@ -1,0 +1,19 @@
+.header {
+  @apply bg-[#111827] text-white min-h-[70px] flex items-center w-full fixed top-0 left-0 right-0 z-50
+}
+
+.row {
+  @apply flex w-full justify-between items-center
+}
+
+.logo {
+  @apply text-6xl
+}
+
+.link {
+  @apply uppercase;
+
+  span {
+    @apply text-gray-600;
+  }
+}

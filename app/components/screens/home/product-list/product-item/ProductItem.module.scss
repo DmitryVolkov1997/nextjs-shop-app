@@ -1,0 +1,31 @@
+.item {
+  @apply w-1/5 shadow-md flex flex-col
+}
+
+.info {
+  @apply p-4 pt-2.5 flex flex-col grow shrink;
+}
+
+.info__header {
+  flex: 1 1 auto;
+  @apply border-b pb-3;
+}
+
+.info__footer {
+  @apply flex justify-between pt-3 items-center
+}
+
+.title {
+  @apply text-2xl mb-1.5
+}
+
+.description {
+  @apply text-base
+}
+
+.btn {
+  @apply bg-[#319795] text-white cursor-pointer px-3.5 py-1.5 rounded-md hover:bg-[#285E61] transition
+}
+
+
+

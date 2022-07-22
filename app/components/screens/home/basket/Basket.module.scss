@@ -1,0 +1,20 @@
+.basket {
+  @apply max-w-[700px] w-full shadow-md text-white rounded-md overflow-hidden fixed  z-50 top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] bg-white
+}
+
+.header, .footer {
+  @apply flex justify-between items-center px-3 py-1.5 bg-emerald-700
+}
+
+.icon {
+  @apply text-4xl cursor-pointer
+}
+
+.item {
+  @apply flex justify-between items-center px-3 py-1.5 text-black bg-white
+}
+
+.item_icon {
+  @apply text-4xl cursor-pointer text-black
+}
+

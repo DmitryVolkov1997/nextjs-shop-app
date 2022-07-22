@@ -1,0 +1,11 @@
+.cart {
+  @apply bg-[#319795] w-20 h-20 cursor-pointer flex justify-center items-center rounded-md fixed top-24 right-72 hover:bg-[#285E61] transition z-50
+}
+
+.icon {
+  @apply text-white text-5xl
+}
+
+.quantity {
+  @apply absolute bottom-0 right-2 text-white
+}

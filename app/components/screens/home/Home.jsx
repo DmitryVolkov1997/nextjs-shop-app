@@ -10,11 +10,13 @@ import Container from '../../container/Container'
 import Cart from './cart/Cart'
 import { setOrder } from '../../../store/orderSlice/orderSlice'
 import Basket from './basket/Basket'
+import { setShowBasket } from '../../../store/basketSlice/basketSlice'
 
 const Home = () => {
 	const dispatch = useDispatch()
 	const { products, loading } = useSelector(state => state.product)
 	const { orders = [] } = useSelector(state => state.order)
+	const { isShowBasket } = useSelector(state => state.basket)
 	
 	const addToBasket = (id) => {
 		const orderIndex = orders.findIndex(order => order.id === id)
@@ -23,7 +25,7 @@ const Home = () => {
 			let order = products.find(order => order.id === id)
 			let newOrder = {
 				...order,
-				quantity: 0
+				quantity: 1
 			}
 			dispatch(setOrder({ data: [...orders, newOrder] }))
 		} else {
@@ -41,6 +43,10 @@ const Home = () => {
 		}
 	}
 	
+	const handleShowBasket = () => {
+		dispatch(setShowBasket())
+	}
+	
 	useEffect(() => {
 		const fetchData = async () => {
 			const { data } = await axios.get(BASE_URL, { headers: { Authorization: '99bf1ca1-9bd0c163-444c538a-f648d67f' } })
@@ -48,14 +54,14 @@ const Home = () => {
 			dispatch(setLoading(false))
 		}
 		fetchData()
-	}, [])
+	}, []) // eslint-disable-line react-hooks/exhaustive-deps
 	
 	return (
 		<Container>
 			<div className={classes.home}>
 				<div className={classes.content}>
-					<Cart quantity={orders.length} />
-					<Basket/>
+					<Cart quantity={orders.length} showBasket={handleShowBasket} />
+					{isShowBasket ? <Basket orders={orders} showBasket={isShowBasket} /> : null}
 					{loading ? <Preloader /> : <ProductList products={products} addToBasket={addToBasket} />}
 				</div>
 			</div>

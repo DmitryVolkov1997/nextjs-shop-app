@@ -1,5 +1,5 @@
 .basket {
-  @apply max-w-[700px] w-full shadow-md text-white rounded-md overflow-hidden fixed  z-50 top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] bg-white
+  @apply max-w-[600px] w-full shadow-md text-white rounded-md overflow-hidden fixed  z-50 top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] bg-white animate-[show_1s_ease-out];
 }
 
 .header, .footer {
@@ -11,10 +11,34 @@
 }
 
 .item {
-  @apply flex justify-between items-center px-3 py-1.5 text-black bg-white
+  @apply flex justify-between items-center px-3 py-1.5 text-black bg-white border-b
 }
 
 .item_icon {
   @apply text-4xl cursor-pointer text-black
+}
+
+.item__info {
+  @apply flex
+}
+
+@keyframes show {
+  from {
+    @apply top-[20%]
+  }
+
+  to {
+    @apply top-[50%]
+  }
+}
+
+@keyframes hide {
+  from {
+    @apply top-[50%]
+  }
+
+  to {
+    @apply top-[20%]
+  }
 }
 

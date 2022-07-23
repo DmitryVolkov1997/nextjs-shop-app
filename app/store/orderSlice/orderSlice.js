@@ -8,7 +8,6 @@ const orderSlice = createSlice({
 	reducers: {
 		setOrder(state, { payload }) {
 			state.orders = payload.data
-			console.log(payload.data)
 		}
 	}
 })

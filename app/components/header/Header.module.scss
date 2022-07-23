@@ -11,9 +11,25 @@
 }
 
 .link {
-  @apply uppercase;
+  @apply uppercase text-3xl;
 
   span {
     @apply text-gray-600;
   }
+}
+
+.inner {
+  @apply flex items-center
+}
+
+.box {
+  @apply ml-3.5 relative cursor-pointer
+}
+
+.cart {
+  @apply text-5xl
+}
+
+.quantity {
+  @apply absolute -top-2 -right-4 bg-red-600 rounded-full w-6 h-6 flex justify-center items-center text-base
 }

@@ -1,5 +1,5 @@
 .basket {
-  @apply max-w-[600px] w-full shadow-md text-white rounded-md overflow-hidden fixed  z-50 top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] bg-white animate-[show_1s_ease-out];
+  @apply max-w-[600px] w-full shadow-md text-white rounded-md overflow-hidden fixed  z-50 top-[30%] left-[50%] -translate-x-[50%] -translate-y-[30%] bg-white animate-[show_1s_ease-out];
 }
 
 .header, .footer {
@@ -22,19 +22,27 @@
   @apply flex
 }
 
+.icons {
+  @apply flex items-center ml-3 gap-3
+}
+
+.increment, .decrement {
+  @apply cursor-pointer text-2xl
+}
+
 @keyframes show {
   from {
     @apply top-[20%]
   }
 
   to {
-    @apply top-[50%]
+    @apply top-[30%]
   }
 }
 
 @keyframes hide {
   from {
-    @apply top-[50%]
+    @apply top-[30%]
   }
 
   to {

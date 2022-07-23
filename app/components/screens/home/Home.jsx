@@ -7,7 +7,6 @@ import { BASE_URL } from '../../../config'
 import { setLoading, setProducts } from '../../../store/productSlice/productSlice'
 import Preloader from '../../preloader/Preloader'
 import Container from '../../container/Container'
-import Cart from './cart/Cart'
 import { setOrder } from '../../../store/orderSlice/orderSlice'
 import Basket from './basket/Basket'
 import { setShowBasket } from '../../../store/basketSlice/basketSlice'
@@ -43,7 +42,40 @@ const Home = () => {
 		}
 	}
 	
-	const handleShowBasket = () => {
+	const removeFromBasket = (id) => {
+		const newOrders = orders.filter(order => order.id !== id)
+		dispatch(setOrder({ data: newOrders }))
+	}
+	
+	const incrementOrder = (id) => {
+		const filteredOrders = orders.map(order => {
+			if (order.id === id) {
+				return {
+					...order,
+					quantity: order.quantity + 1
+				}
+			} else {
+				return order
+			}
+		})
+		dispatch(setOrder({ data: filteredOrders }))
+	}
+	
+	const decrementOrder = (id) => {
+		const filteredOrders = orders.map(order => {
+			if (order.id === id) {
+				return {
+					...order,
+					quantity: order.quantity > 0 ? order.quantity - 1 : 0
+				}
+			} else {
+				return order
+			}
+		})
+		dispatch(setOrder({ data: filteredOrders }))
+	}
+	
+	const hideBasket = () => {
 		dispatch(setShowBasket())
 	}
 	
@@ -60,8 +92,9 @@ const Home = () => {
 		<Container>
 			<div className={classes.home}>
 				<div className={classes.content}>
-					<Cart quantity={orders.length} showBasket={handleShowBasket} />
-					{isShowBasket ? <Basket orders={orders} showBasket={isShowBasket} /> : null}
+					{isShowBasket ? <Basket orders={orders} showBasket={isShowBasket} hideBasket={hideBasket}
+					                        onDelete={removeFromBasket} incrementOrder={incrementOrder}
+					                        decrementOrder={decrementOrder} /> : null}
 					{loading ? <Preloader /> : <ProductList products={products} addToBasket={addToBasket} />}
 				</div>
 			</div>

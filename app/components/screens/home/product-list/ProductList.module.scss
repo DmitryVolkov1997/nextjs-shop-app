@@ -1,3 +1,10 @@
 .list {
-  @apply flex flex-wrap gap-8 justify-between
+	@apply flex flex-wrap gap-8 justify-between;
 }
+
+@media (max-width: 1200px) {
+	.list {
+		@apply justify-evenly gap-11;
+	}
+}
+
